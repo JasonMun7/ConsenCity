@@ -9,27 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      Admins: {
-        Row: {
-          created_at: string
-          email: string | null
-          id: string
-          name: string | null
-        }
-        Insert: {
-          created_at?: string
-          email?: string | null
-          id?: string
-          name?: string | null
-        }
-        Update: {
-          created_at?: string
-          email?: string | null
-          id?: string
-          name?: string | null
-        }
-        Relationships: []
-      }
       Posts: {
         Row: {
           admin_id: string | null
@@ -66,7 +45,7 @@ export type Database = {
             foreignKeyName: "public_Posts_admin_id_fkey"
             columns: ["admin_id"]
             isOneToOne: false
-            referencedRelation: "Admins"
+            referencedRelation: "Users"
             referencedColumns: ["id"]
           }
         ]
@@ -143,33 +122,51 @@ export type Database = {
           }
         ]
       }
+      test: {
+        Row: {
+          created_at: string
+          id: number
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Relationships: []
+      }
       Users: {
         Row: {
           city: string
           created_at: string
           email: string
-          file: string
           id: string
           image_url: string | null
           name: string | null
+          role: string
         }
         Insert: {
           city: string
           created_at?: string
           email: string
-          file: string
           id?: string
           image_url?: string | null
           name?: string | null
+          role?: string
         }
         Update: {
           city?: string
           created_at?: string
           email?: string
-          file?: string
           id?: string
           image_url?: string | null
           name?: string | null
+          role?: string
         }
         Relationships: [
           {

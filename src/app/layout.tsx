@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import supabase from '../lib/helper/supabaseClient'
+import Navbar from '../components/navbar'
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="text-blue-500">{children}</body>
+      <Navbar/>
+      <body>{children}</body>
     </html>
   );
 }
