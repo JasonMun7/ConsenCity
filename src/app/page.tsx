@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from 'react'
 import React from "react";
+
 import Navbar from "../components/navbar"
 import background1 from '../assets/background1.png'
 import {supabaseBrowser} from '../lib/supabase/browser'
