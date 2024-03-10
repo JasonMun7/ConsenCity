@@ -5,10 +5,11 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from '../components/3d-card'
 import { Post } from "../components/post"
 
+
 export default function Home() {
   return (
     <>
-      <Post name="POST NAME" description="Introducing PizzazzifyBot - the ultimate tool for injecting flair and sparkle into your everyday digital interactions! Are you tired of mundane conversations and lackluster messages? Fear not, because PizzazzifyBot is here to revolutionize the way you communicate." tags={["tag1", "tag2", "tag3"]} />
+      <Post name="POST NAME" description="Introducing PizzazzifyBot - the ultimate tool for injecting flair and sparkle into your everyday digital interactions! Are you tired of mundane conversations and lackluster messages? Fear not, because PizzazzifyBot is here to revolutionize the way you communicate." tags={["Infrastructure", "Transportation", "Energy"]} />
       <div className="sm:w-72 w-54">Hello world</div>
 
       <CardContainer className="inter-var">
