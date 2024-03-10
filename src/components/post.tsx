@@ -1,5 +1,6 @@
 "use client";
 
+import { None } from "framer-motion";
 import { cn } from "../util/cn";
 import React, {
   createContext,
@@ -12,17 +13,23 @@ import React, {
 
 
 export const Post = ({
-  post
+  name,
+  description,
+  image,
+  link,
+  tags
 }: {
-  post: string
+  name: string,
+  description: string,
+  image?: string,
+  link?: string,
+  tags: string[]
 }) => {
   const [rating, setRating] = useState<number>(1);
 
   const handleRatingChange = (value: number) => {
     setRating(value);
   };
-
-  const tags = ["tag", "tag", "tag"]
 
   const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
 
@@ -36,7 +43,7 @@ export const Post = ({
     <>
       <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5">
         <div className="flex flex-row justify-between items-center">
-          <div className="font-bold text-3xl text-[#000000]">{post}</div>
+          <div className="font-bold text-3xl text-[#000000]">{name}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-bookmark sm:h-6 sm:w-6 md:h-8 md:w-9s lg:h-10 lg:w-10"
@@ -61,11 +68,11 @@ export const Post = ({
         }</div>
 
         <div className="text-[#7A7A7A]">
-          <strong className="text-[#000000]">Description:</strong> <br></br>Introducing "PizzazzifyBot" - the ultimate tool for injecting flair and sparkle into your everyday digital interactions! Are you tired of mundane conversations and lackluster messages? Fear not, because PizzazzifyBot is here to revolutionize the way you communicate.
+          <strong className="text-[#000000]">Description:</strong> <br></br>{description}
         </div>
 
         <div className="outline outline-1 outline-offset-2 rounded-xl p-2 bg-[#F9F9F9] outline-[#B7B7B7]">
-          <div className="w-full h-36 bg-[#E4E4E4] rounded-2xl"></div>
+          {image ? <img src={image} className="w-full"></img> : <div className="w-full h-36 bg-[#E4E4E4] rounded-2xl"></div>}
           <div>img.jpg</div>
         </div>
 
@@ -106,10 +113,10 @@ export const Post = ({
             ))}
           </div>
 
-          <div className="flex flex-row space-x-2"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-align-justified" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l12 0" /></svg>
+          <div className="flex flex-row space-x-2 items-center">
+
+            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-align-justified h-10 w-10" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l12 0" /></svg>
             <div>Review</div></div>
-
-
 
         </div>
 
