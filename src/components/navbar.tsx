@@ -15,9 +15,11 @@ export default function Navbar(){
 
   return (
     <>
-    <div className='flex flex-row justify-between'>
+    <div className='py-5 flex flex-row justify-between'>
       {/* Logo */}
       <a className="btn btn-ghost text-xl">ConsenCity</a>
+
+
       <div className='flex flex-row gap-x-4'>
 
       {/* Search Bar */}
