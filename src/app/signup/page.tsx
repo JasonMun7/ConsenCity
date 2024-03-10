@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import buildingImage from '../../../public/city.svg'; // Update with the path to your image
-import supabase from '../../lib/helper/supabaseClient';
 import EmailSignUp from '../../components/emailSignup';
 
 const SignUpPage = () => {
