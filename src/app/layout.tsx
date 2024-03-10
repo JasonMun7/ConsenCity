@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import supabase from '../lib/helper/supabaseClient'
 import "./globals.css";
 
 export const metadata: Metadata = {
