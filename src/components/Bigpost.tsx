@@ -10,6 +10,7 @@ import React, {
   useEffect,
 } from "react";
 import Tag from "./tag";
+import { Comment } from "./Comment";
 
 
 
@@ -18,13 +19,15 @@ export const BigPost = ({
   description,
   image,
   link,
-  tags
+  tags,
+  comments,
 }: {
   name: string,
   description?: string,
   image?: string,
   link?: string,
-  tags: string[]
+  tags: string[],
+  comments?: Comment[]
 }) => {
   const [rating, setRating] = useState<number>(1);
 
@@ -59,6 +62,19 @@ export const BigPost = ({
         return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-green-200  border-[3px] border-green-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-green-600`, `text-green-600 flex`]
     }
   }
+
+  const totalReviews = '10.6k';
+  const growthPercentage = 20.1;
+  const averageReviews = 4.0;
+  // Rating breakdown as an array of objects, could be fetched from API as well
+  const ratingBreakdown = [
+    { stars: 5, count: 120 },
+    { stars: 4, count: 95 },
+    { stars: 3, count: 75 },
+    { stars: 2, count: 45 },
+    { stars: 1, count: 30 },
+  ];
+
 
   return (
     <>
@@ -119,25 +135,47 @@ export const BigPost = ({
         <hr />
 
         <div className="flex flex-row justify-between items-center">
-          <div className="rating">
-            {[1, 2, 3, 4, 5].map((value) => (
-              <input
-                key={value}
-                type="radio"
-                name="rating-4"
-                className="mask mask-star-2 bg-green-500"
-                checked={rating === value}
-                onChange={() => handleRatingChange(value)}
-              />
-            ))}
+
+          <div className="font-bold text-3xl">Reviews</div>
+          <div className="btn bg-[#286F40] text-white hover:bg-[#286F40] hover:text-white">
+            Make a review
+          </div>
+        </div>
+
+        {/* section here */}
+        <div className="flex flex-row justify-between mb-4 w-full">
+          <div className="flex-1" >
+            <div className="text-lg">Total reviews</div>
+            <div className="text-3xl font-bold">{totalReviews}</div>
+            <div className="text-green-500">{growthPercentage}% <span className="text-sm">Growth in reviews this year</span></div>
+          </div>
+          <div className="flex-1">
+            <div className="text-lg">Average reviews</div>
+            <div className="text-3xl font-bold">{averageReviews} <span className="text-yellow-400">★★★★★</span></div>
+            <div className="text-sm">Average rating on this year</div>
           </div>
 
-          <div className="flex flex-row space-x-2 items-center">
-
-            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-align-justified h-10 w-10" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l12 0" /></svg>
-            <div>Review</div></div>
-
+          <div className="flex flex-col flex-1">
+            {ratingBreakdown.map((item, index) => (
+              <div key={index} className="flex items-center mb-1">
+                <span className="text-lg mr-2">{item.stars} ★</span>
+                <div className="flex-1 h-4 bg-gray-200 rounded-full">
+                  <div
+                    className="h-4 bg-green-500 rounded-full"
+                    style={{ width: `${(item.count / ratingBreakdown[0].count) * 100}%` }} // Assuming the count of 5 stars is the maximum
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
+        <Comment rating={3} />
+        <hr />
+        <Comment rating={1} />
+
+
+
 
       </div>
     </>
