@@ -24,7 +24,7 @@ export const Comment = ({
     <>
       <div className=" w-full space-y-3">
         <div className="flex flex-row items-center space-x-5">
-          {image ?  <img className = "rounded-full h-12 w-12 flex-shrink-0" src={image}></img>: <div className="bg-slate-500 rounded-full h-12 w-12 flex-shrink-0"></div>}
+          {image ? <img className="rounded-full h-12 w-12 flex-shrink-0" src={image}></img> : <div className="bg-slate-500 rounded-full h-12 w-12 flex-shrink-0"></div>}
           <div className="flex flex-col">
             <div className="text-lg font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
               {name}</div>
@@ -39,7 +39,7 @@ export const Comment = ({
                   type="radio"
                   name="rating"
                   className="mask mask-star-2 bg-green-500"
-                  checked={value === rating}
+                  checked={value < rating}
                   readOnly={true} // Set the radio inputs as read-only
                 />
               ))}

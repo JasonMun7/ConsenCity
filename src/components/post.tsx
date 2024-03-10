@@ -11,7 +11,7 @@ import React, {
 } from "react";
 import Tag from "./tag";
 import { BigPost } from "./Bigpost";
-import { CommentProps} from "./Comment";
+import { CommentProps } from "./Comment";
 
 
 export const Post = ({
@@ -29,7 +29,7 @@ export const Post = ({
   tags: string[],
   comments?: CommentProps[]
 }) => {
-  const [modalOpen, setModal ] = useState(false);
+  const [modalOpen, setModal] = useState(false);
   const [rating, setRating] = useState<number>(1);
 
   const handleRatingChange = (value: number) => {
@@ -44,25 +44,25 @@ export const Post = ({
 
   function labelColor(label: string) {
     switch (label.toLowerCase()) {
-        
-        case "transportation":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-red-200  border-[3px] border-red-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-red-600`,`text-red-600 flex`]
-        case "public spaces":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-orange-200  border-[3px] border-orange-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-orange-600`,`text-orange-600 flex`]
-        case "education":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-yellow-200  border-[3px] border-yellow-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-yellow-600`,`text-yellow-600 flex`]
-        case "energy":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-cyan-200  border-[3px] border-cyan-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-cyan-600`,`text-cyan-600 flex`]
-        case "waste management":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-blue-200  border-[3px] border-blue-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-blue-600`,`text-blue-600 flex`]
-        case "safety":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-indigo-200  border-[3px] border-indigo-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-indigo-600`,`text-indigo-600 flex`]
-        case "healthcare":
-          return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-purple-200  border-[3px] border-purple-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-purple-600`,`text-purple-600 flex`]
-        default:
-            return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-green-200  border-[3px] border-green-600 px-4 py-2 rounded-3xl font-bold mr-2`,`flex w-3 h-3 rounded-full bg-green-600`,`text-green-600 flex`]
+
+      case "transportation":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-red-200  border-[3px] border-red-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-red-600`, `text-red-600 flex`]
+      case "public spaces":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-orange-200  border-[3px] border-orange-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-orange-600`, `text-orange-600 flex`]
+      case "education":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-yellow-200  border-[3px] border-yellow-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-yellow-600`, `text-yellow-600 flex`]
+      case "energy":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-cyan-200  border-[3px] border-cyan-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-cyan-600`, `text-cyan-600 flex`]
+      case "waste management":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-blue-200  border-[3px] border-blue-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-blue-600`, `text-blue-600 flex`]
+      case "safety":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-indigo-200  border-[3px] border-indigo-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-indigo-600`, `text-indigo-600 flex`]
+      case "healthcare":
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-purple-200  border-[3px] border-purple-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-purple-600`, `text-purple-600 flex`]
+      default:
+        return [`flex flex-row text-center items-center whitespace-nowrap gap-2 bg-green-200  border-[3px] border-green-600 px-4 py-2 rounded-3xl font-bold mr-2`, `flex w-3 h-3 rounded-full bg-green-600`, `text-green-600 flex`]
     }
-}
+  }
 
   return (
     <>
@@ -89,7 +89,7 @@ export const Post = ({
         <div className="flex flex-row space-x-3">{
           tags.slice(0, 3).map((t, i) => (
             // <div key={i} className="bg-slate-200 px-2 rounded-xl">{t}</div>
-            <Tag key={i} label={t} div1={labelColor(t)[0]} div2={labelColor(t)[1]} div3={labelColor(t)[2]}/>
+            <Tag key={i} label={t} div1={labelColor(t)[0]} div2={labelColor(t)[1]} div3={labelColor(t)[2]} />
           ))
         }</div>
 
@@ -136,9 +136,9 @@ export const Post = ({
             ))}
           </div>
 
-          <button onClick = {() => {
-        setModal(true);
-      }} className="flex flex-row space-x-2 items-center">
+          <button onClick={() => {
+            setModal(true);
+          }} className="flex flex-row space-x-2 items-center">
 
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-align-justified h-10 w-10" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l12 0" /></svg>
             <div>Review</div></button>
@@ -146,9 +146,9 @@ export const Post = ({
         </div>
 
       </div>
-      <BigPost name={name} description={description} image={image} tags={tags} comments={comments} open = {modalOpen} setOpen={(b) => {
+      <BigPost name={name} description={description} image={image} tags={tags} comments={comments} open={modalOpen} setOpen={(b) => {
         setModal(b);
-      }}/>
+      }} />
     </>
   );
 };
