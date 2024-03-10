@@ -89,7 +89,7 @@ export const BigPost = ({
     <div
         id="modal-bg"
         onClick={handleClose}
-        className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center w-screen h-screen z-20"
+        className="fixed inset-0 bg-black bg-opacity-30 overflow-auto backdrop-blur-sm flex justify-center items-center w-screen h-screen z-20"
       >
       <div onClick={(e) => {
           e.stopPropagation();
