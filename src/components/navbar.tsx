@@ -5,7 +5,7 @@ import Logo from '../../public/logo.png';
 import { supabaseBrowser } from '@/lib/supabase/browser';
 import { useRouter } from 'next/navigation';
 
-export default function Navbar() {
+export default function Navbar({ user_img } : { user_img: string }) {
   const [searchTerm, setSearchTerm] = useState('');
   const router = useRouter();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +22,8 @@ export default function Navbar() {
     await supabase.auth.signOut();
     router.push('/login')
   };
+
+  
 
   return (
     <>
@@ -58,7 +60,7 @@ export default function Navbar() {
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-8">
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img alt="Tailwind CSS Navbar component" src={ user_img ? user_img : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
               </div>
             </div>
             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
