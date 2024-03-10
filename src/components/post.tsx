@@ -10,7 +10,9 @@ import React, {
   useEffect,
 } from "react";
 import Tag from "./tag";
-
+import { BigPost } from "./Bigpost";
+import { useModal } from "../providers/ModalProvider";
+import { CommentProps} from "./Comment";
 
 
 export const Post = ({
@@ -18,14 +20,17 @@ export const Post = ({
   description,
   image,
   link,
-  tags
+  tags,
+  comments
 }: {
   name: string,
   description: string,
   image?: string,
   link?: string,
-  tags: string[]
+  tags: string[],
+  comments?: CommentProps[]
 }) => {
+  const { isModalOpen, openModal, closeModal } = useModal();
   const [rating, setRating] = useState<number>(1);
 
   const handleRatingChange = (value: number) => {
@@ -132,14 +137,17 @@ export const Post = ({
             ))}
           </div>
 
-          <div className="flex flex-row space-x-2 items-center">
+          <button onClick = {() => {
+        openModal()
+      }} className="flex flex-row space-x-2 items-center">
 
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-align-justified h-10 w-10" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l12 0" /></svg>
-            <div>Review</div></div>
+            <div>Review</div></button>
 
         </div>
 
       </div>
+      <BigPost name={name} description={description} image={image} tags={tags} comments={comments}/>
     </>
   );
 };

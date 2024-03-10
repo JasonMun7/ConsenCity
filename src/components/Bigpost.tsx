@@ -1,7 +1,5 @@
 "use client";
 
-import { None } from "framer-motion";
-import { cn } from "../util/cn";
 import React, {
   createContext,
   useState,
@@ -11,7 +9,7 @@ import React, {
 } from "react";
 import Tag from "./tag";
 import { CommentProps, Comment } from "./Comment";
-
+import { useModal } from "../providers/ModalProvider";
 
 
 export const BigPost = ({
@@ -29,6 +27,12 @@ export const BigPost = ({
   tags: string[],
   comments?: CommentProps[]
 }) => {
+  const { isModalOpen, closeModal } = useModal();
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.id === "modal-bg") {
+      closeModal();
+    }
+  };
   const [rating, setRating] = useState<number>(1);
 
   const handleRatingChange = (value: number) => {
@@ -76,9 +80,16 @@ export const BigPost = ({
   ];
 
 
-  return (
+  return isModalOpen ? (
     <>
-      <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5 bg-white">
+    <div
+        id="modal-bg"
+        onClick={handleClose}
+        className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center w-screen h-screen z-20"
+      >
+      <div onClick={(e) => {
+          e.stopPropagation();
+        }} className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5 bg-white">
         <div className="flex flex-row justify-between items-center">
           <div className="font-bold text-3xl text-[#000000]">{name}</div>
           <svg
@@ -186,6 +197,7 @@ export const BigPost = ({
 
 
       </div>
+      </div>
     </>
-  );
+  ) : false;
 };
