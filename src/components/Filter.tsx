@@ -50,7 +50,12 @@ export const Filter = () => {
       <form className="filter-form">
         {/* Type Section */}
         <details className="collapse" open={isTypeOpen} onToggle={(e) => setTypeOpen((e.target as HTMLDetailsElement).open)}>
-          <summary className="collapse-title text-xl font-medium">Type</summary>
+          <summary className="collapse-title text-xl font-medium ">
+            <div className="flex flex-row justify-between"><div>Type</div>
+              {isTypeOpen ? <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 15l6 -6l6 6" /></svg>}
+            </div>
+
+          </summary>
           <div className="collapse-content">
             {typeList.map((type, index) => (
               <div key={index} className="flex items-center mb-2">
@@ -68,7 +73,9 @@ export const Filter = () => {
 
         {/* Tags Section */}
         <details className="collapse" open={isTagsOpen} onToggle={(e) => setTagsOpen((e.target as HTMLDetailsElement).open)}>
-          <summary className="collapse-title text-xl font-medium">Tags</summary>
+          <summary className="collapse-title text-xl font-medium"><div className="flex flex-row justify-between"><div>Tags</div>
+            {isTagsOpen ? <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 15l6 -6l6 6" /></svg>}
+          </div></summary>
           <div className="collapse-content">
             {tagList.map((tag, index) => (
               <div key={index} className="flex items-center mb-2">
@@ -81,7 +88,9 @@ export const Filter = () => {
 
         {/* Rating Section */}
         <details className="collapse" open={isRatingOpen} onToggle={(e) => setRatingOpen((e.target as HTMLDetailsElement).open)}>
-          <summary className="collapse-title text-xl font-medium" >Rating</summary>
+          <summary className="collapse-title text-xl font-medium" ><div className="flex flex-row justify-between"><div>Rating</div>
+            {isRatingOpen ? <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 15l6 -6l6 6" /></svg>}
+          </div></summary>
           <div className="collapse-content">
             {ratingList.map((rate, index) => (
               <div key={index} className="flex items-center mb-2">
@@ -94,7 +103,9 @@ export const Filter = () => {
 
         {/* Recent Section */}
         <details className="collapse" open={isRecentOpen} onToggle={(e) => setRecentOpen((e.target as HTMLDetailsElement).open)}>
-          <summary className="collapse-title text-xl font-medium">Recent</summary>
+          <summary className="collapse-title text-xl font-medium"><div className="flex flex-row justify-between"><div>Recent</div>
+            {isRecentOpen ? <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 15l6 -6l6 6" /></svg>}
+          </div></summary>
           <div className="collapse-content">
             {recentList.map((recent, index) => (
               <div key={index} className="flex items-center mb-2">
