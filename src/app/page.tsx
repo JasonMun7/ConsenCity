@@ -12,6 +12,8 @@ import {Post} from "../components/post"
 import {SidePost} from "../components/SidePost"
 import {Filter} from '../components/Filter'
 import {fetchData} from './actions'
+import { getUser } from './actions/authAction'
+import { User } from "@supabase/supabase-js";
 
 interface PostType {
   id: number; 
@@ -28,8 +30,19 @@ interface RatingType {
   user_id: string;
 }
 
+// interface UserType {
+//           city : string,
+//           created_at: string
+//           email: string
+//           id: string
+//           image_url: string | null
+//           name: string | null
+//           role: string
+
+// }
 
 export default function Home() {
+  const [user, setUser] = useState<User | undefined>()
   const [posts, setPosts] = useState<PostType[]>([] as PostType[]);
   const [topRatedPosts, setTopRatedPosts] = useState<PostType[]>([]);
 
@@ -38,6 +51,8 @@ export default function Home() {
       try {
         const fetchedPosts = await fetchData();
         setPosts(fetchedPosts);
+        const user = await getUser();
+        setUser(user);
       } catch (error) {
         console.error("Failed to fetch posts:", error);
       }
@@ -48,7 +63,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-cover bg-center" style={{ backgroundImage: `url(${background1.src || background1})`}}>
-        <Navbar/>
+        <Navbar user_img={user?.user_metadata.avatar_url}/>
 
 
           <div className="flex flex-row pt-10 justify-between">
@@ -88,3 +103,4 @@ export default function Home() {
     </>
   );
 }
+
