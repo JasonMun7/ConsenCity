@@ -62,7 +62,7 @@ export const Post = ({
 
   return (
     <>
-      <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5">
+      <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[700px] bg-white space-y-5">
         <div className="flex flex-row justify-between items-center">
           <div className="font-bold text-3xl text-[#000000]">{name}</div>
           <svg

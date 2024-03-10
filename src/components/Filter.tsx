@@ -45,7 +45,7 @@ export const Filter = () => {
   };
 
   return (
-    <div className="rounded-3xl shadow-xl m-10 p-5 w-[20%]">
+    <div className="rounded-3xl shadow-xl m-10 p-5 w-96 bg-white h-[80%]">
       <h2 className="text-2xl font-bold text-[#286F40]">Filters</h2>
       <form className="filter-form">
         {/* Type Section */}
