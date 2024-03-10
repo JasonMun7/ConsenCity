@@ -36,7 +36,7 @@ export const SidePost = ({
 
   return (
     <>
-      <div className="rounded-3xl shadow-lg flex flex-col justify-center w-[35%] h-[30%] gap-4 px-6 py-8">
+      <div className="rounded-3xl shadow-lg flex flex-col justify-center w-[300px] h-[100px] bg-white gap-4 px-6 py-8">
 
         <div className="text-2xl font-semibold">{name}</div>
 
