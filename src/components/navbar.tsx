@@ -1,10 +1,13 @@
 "use client"
 import React, { useState } from 'react';
+import Image from 'next/image';
+import Logo from '../../public/logo.png';
+import { supabaseBrowser } from '@/lib/supabase/browser';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
-
-
+  const router = useRouter();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
@@ -14,15 +17,17 @@ export default function Navbar() {
     console.log('Searching for:', searchTerm);
   };
 
+  const handleLogout = async () => {
+    const supabase = supabaseBrowser();
+    await supabase.auth.signOut();
+    router.push('/login')
+  };
+
   return (
     <>
-    <div className='py-5 flex flex-row justify-between'>
-      {/* Logo */}
-      <a className="btn btn-ghost text-xl">ConsenCity</a>
-
-
-      <div className='flex flex-row gap-x-4'>
-
+      <div className='flex flex-row justify-between'>
+        <Image src={Logo} className="h-29 w-30" alt="Logo" />
+        <div className='mt-8 flex flex-row gap-x-4'>
           {/* Search Bar */}
           <form onSubmit={handleSubmit} className="w-96">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -35,7 +40,7 @@ export default function Navbar() {
               <input
                 type="search"
                 id="default-search"
-                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search Policies, Projects..."
                 required
                 value={searchTerm}
@@ -51,7 +56,7 @@ export default function Navbar() {
 
           {/* Profile */}
           <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-8">
               <div className="w-10 rounded-full">
                 <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
               </div>
@@ -63,7 +68,9 @@ export default function Navbar() {
                 </a>
               </li>
               <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
+              <li><a onClick={handleLogout} className="cursor-pointer">
+                Logout
+              </a></li>
             </ul>
           </div>
         </div>
