@@ -10,7 +10,7 @@ import React, {
   useEffect,
 } from "react";
 import Tag from "./tag";
-import { Comment } from "./Comment";
+import { CommentProps, Comment } from "./Comment";
 
 
 
@@ -27,7 +27,7 @@ export const BigPost = ({
   image?: string,
   link?: string,
   tags: string[],
-  comments?: Comment[]
+  comments?: CommentProps[]
 }) => {
   const [rating, setRating] = useState<number>(1);
 
@@ -78,7 +78,7 @@ export const BigPost = ({
 
   return (
     <>
-      <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5">
+      <div className="rounded-3xl shadow-xl p-10 m-10 flex flex-col w-[50%] space-y-5 bg-white">
         <div className="flex flex-row justify-between items-center">
           <div className="font-bold text-3xl text-[#000000]">{name}</div>
           <svg
@@ -170,9 +170,17 @@ export const BigPost = ({
           </div>
         </div>
 
-        <Comment rating={3} />
-        <hr />
-        <Comment rating={1} />
+        <div className = "flex flex-col gap-4">
+
+       
+        {comments ? comments.map((c, i) => (
+          <div className = "flex flex-col gap-4">
+         
+          <Comment key={i} name={c.name} image = {c.image} time={c.time} rating={c.rating} comment={c.comment} />
+          <hr /> </div>
+        )) : <></>}
+         
+         </div>
 
 
 
