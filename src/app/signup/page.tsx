@@ -3,8 +3,10 @@ import React from 'react';
 import Image from 'next/image';
 import buildingImage from '../../../public/city.svg'; // Update with the path to your image
 import EmailSignUp from '../../components/emailSignup';
+import { supabaseBrowser } from '@/lib/supabase/browser';
 
 const SignUpPage = () => {
+  const supabase = supabaseBrowser();
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
