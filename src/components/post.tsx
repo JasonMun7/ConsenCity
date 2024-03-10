@@ -49,8 +49,8 @@ export const Post = ({
             className="icon icon-tabler icon-tabler-bookmark sm:h-6 sm:w-6 md:h-8 md:w-9s lg:h-10 lg:w-10"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke={isBookmarked ? "#286F40" : "currentColor"}
-            fill={isBookmarked ? "#BED4C6" : "none"}
+            stroke="#286F40"
+            fill={isBookmarked ? "#286F40" : "#BED4C6"}
             strokeLinecap="round"
             strokeLinejoin="round"
             onClick={toggleBookmark}
@@ -72,7 +72,7 @@ export const Post = ({
         </div>
 
         <div className="outline outline-1 outline-offset-2 rounded-xl p-2 bg-[#F9F9F9] outline-[#B7B7B7]">
-          {image ? <img src={image} className="w-full"></img> : <div className="w-full h-36 bg-[#E4E4E4] rounded-2xl"></div>}
+          {image ? <img src={image} className="w-full"></img> : <div className="w-full h-36 bg-[#E4E4E4] rounded-md"></div>}
           <div>img.jpg</div>
         </div>
 
@@ -91,13 +91,10 @@ export const Post = ({
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5" />
           </svg>
-
-
           <div>attatchment.pdf</div>
         </div>
 
         <hr />
-
 
         <div className="flex flex-row justify-between items-center">
           <div className="rating">
