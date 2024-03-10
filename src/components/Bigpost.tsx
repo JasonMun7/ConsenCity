@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import Tag from "./tag";
 import { CommentProps, Comment } from "./Comment";
-import { useModal } from "../providers/ModalProvider";
+// import { useModal } from "../providers/ModalProvider";
 
 
 export const BigPost = ({
@@ -19,18 +19,22 @@ export const BigPost = ({
   link,
   tags,
   comments,
+  open,
+  setOpen
 }: {
   name: string,
   description?: string,
   image?: string,
   link?: string,
   tags: string[],
-  comments?: CommentProps[]
+  comments?: CommentProps[],
+  open: boolean
+  setOpen: (open: boolean) => void
 }) => {
-  const { isModalOpen, closeModal } = useModal();
+  
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget.id === "modal-bg") {
-      closeModal();
+      setOpen(false);
     }
   };
   const [rating, setRating] = useState<number>(1);
@@ -80,7 +84,7 @@ export const BigPost = ({
   ];
 
 
-  return isModalOpen ? (
+  return open ? (
     <>
     <div
         id="modal-bg"

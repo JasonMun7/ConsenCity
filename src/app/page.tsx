@@ -14,6 +14,7 @@ import {Filter} from '../components/Filter'
 import {fetchData} from './actions'
 import { getUser } from './actions/authAction'
 import { User } from "@supabase/supabase-js";
+import { CommentProps } from "../components/Comment";
 
 interface PostType {
   id: number; 
@@ -74,8 +75,29 @@ export default function Home() {
 
           <div className="flex flex-col overflow-auto h-[85vh]">
                       {posts.map((post) => (
-                        <Post key={post.id} name={post.title} image={post.img_url} description={post.description} tags={post.categories}/>
-                      ))}
+                        <Post key={post.id} name={post.title} image={post.img_url} description={post.description} tags={post.categories} comments={[{name:"Kevin Ram",
+                          image: "https://pbs.twimg.com/media/F3bNBiiWMAEc-lF.jpg",
+                          time: "2 min",
+                          rating: 5,
+                          comment: "Wow that sounds amazing, I love smart cities. Keep up the good work!"},
+                          {name:"Andrew Cheung",
+                          image: "https://pbs.twimg.com/media/F3bNBiiWMAEc-lF.jpg",
+                          time: "10 min",
+                          rating: 3,
+                          comment: "Seems like it could work, but not completely confident."},
+                          {name:"Jason Mun",
+                          image: "https://pbs.twimg.com/media/F3bNBiiWMAEc-lF.jpg",
+                          time: "15 min",
+                          rating: 4,
+                          comment: "That sounds like a great idea, I never thought about that before, I love smart cities so much!"},
+                          {name:"Sean Zhang",
+                          image: "https://pbs.twimg.com/media/F3bNBiiWMAEc-lF.jpg",
+                          time: "2 min",
+                          rating: 1,
+                          comment: "This is not a good idea at all. You guys should stop before you waste any more taxpayers' money!"},]}/>
+                      )
+                      
+                      )}
                     </div>
 
             <div className="bg-white pt-10 h-[85vh] w-[2px]"> </div>
