@@ -1,7 +1,5 @@
 "use client";
 
-import { None } from "framer-motion";
-import { cn } from "../util/cn";
 import React, {
   createContext,
   useState,
@@ -11,21 +9,26 @@ import React, {
 } from "react";
 
 
+export interface CommentProps {
+  name: string,
+  image?: string,
+  time: string,
+  rating: number,
+  comment: string
+}
 
 export const Comment = ({
-  rating
-}: {
-  rating: number
-}) => {
+  name, image, time, rating, comment
+}: CommentProps) => {
   return (
     <>
       <div className=" w-full space-y-3">
         <div className="flex flex-row items-center space-x-5">
-          <div className="bg-slate-500 rounded-full h-16 w-16 flex-shrink-0"></div>
+          {image ?  <img className = "rounded-full h-12 w-12 flex-shrink-0" src={image}></img>: <div className="bg-slate-500 rounded-full h-12 w-12 flex-shrink-0"></div>}
           <div className="flex flex-col">
             <div className="text-lg font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
-              Kevin Ram</div>
-            <div>2 min ago</div>
+              {name}</div>
+            <div>{time}</div>
           </div>
 
           <div className="flex flex-col text-left mr-5">
@@ -42,7 +45,7 @@ export const Comment = ({
               ))}
             </div>
             <div className="text-sm ">
-              Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights Oh hey this sounds good do you like it the way i do when the lights
+              {comment}
             </div>
           </div>
         </div>
