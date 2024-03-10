@@ -13,9 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Navbar/>
-      <body>{children}</body>
+    <html lang="en" className="h-full">
+      {/* <Navbar/> */}
+      <body className = "h-full">{children}</body>
     </html>
   );
 }

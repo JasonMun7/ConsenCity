@@ -9,8 +9,8 @@ import {SidePost} from '../components/SidePost'
 export default function Home() {
   return (
     <>
-    <div>
-      <SidePost name="Post 1" tags={["tag1", "tag2", "tag3"]}/>
+    <div className = "flex justify-center w-full h-full">
+      <SidePost name="Project Name" tags={["Waste Management", "Education", "Safety"]}/>
     </div>
       
     </>
