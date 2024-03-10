@@ -33,8 +33,9 @@ export const ProjectCard = () => {
           </button>
         </div>
 
-        <div>Your email will not be displayed publicly. Required fields are
-          marked*</div>
+        <div className="flex flex-row"><div>Your email will not be displayed publicly. Required fields are
+          marked</div><span className="text-[#dc4242]">*</span></div>
+
 
         <div>Rate the project/policy</div>
         <div className="rating">
@@ -49,8 +50,8 @@ export const ProjectCard = () => {
             />
           ))}
         </div>
+        <div className="flex flex-row"><div >Write a review</div><span className="text-[#dc4242]">*</span></div>
 
-        <div>Write a review</div>
         <textarea
           placeholder="Type here"
           className="textarea textarea-bordered w-full h-32" // Adjust the h-32 to your desired height

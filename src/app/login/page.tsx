@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import buildingImage from '../../../public/city.svg';
-import supabase from '../../lib/helper/supabaseClient';
 import { supabaseBrowser } from '@/lib/supabase/browser';
 import EmailLogin from '@/components/emailLogin';
 import OauthLogin from '@/components/oauthLogin';
 
 const LoginPage = () => {
   const [error, setError] = useState<string>('');
+  const supabase = supabaseBrowser();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,7 +19,6 @@ const LoginPage = () => {
   };
 
   const handleLoginWithOAuth = (provider: "google") => {
-    const supabase = supabaseBrowser();
     supabase.auth.signInWithOAuth({
       provider,
       options: {
