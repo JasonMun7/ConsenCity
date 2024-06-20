@@ -1,4 +1,9 @@
+##ConsenCity 🏙️
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Description
+ConsenCity is a platform where citizens of a city can go to upvote and downvote policies and laws. Citizens must go through a screening process to ensure they are legitimate residents. The platform is primarily for city officials to post these laws and policies. This project was developed during the Cornell Big Red Hackathon, where my team and I were awarded the Best Software Hack award. The theme was "How do we make a smart city?" We utilized Next.js, React, Tailwind CSS, and Supabase to manage logins and admin pages. 🌟
 
 ## Getting Started
 
